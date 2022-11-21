@@ -39,6 +39,7 @@ export default {
         restart()
         {
             this.health = 100;
+            this.ended =! this.ended
         }
 
     }

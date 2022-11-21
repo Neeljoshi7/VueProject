@@ -1,10 +1,11 @@
 <template>
   <div>
     <div>
-      <b-navbar type="dark" variant="light">
+      <b-navbar class="navbar py-4" type="dark" variant="dark">
         <b-navbar-nav>
           <RouterLink class="me-2" to="/">PunchBag</RouterLink>
-          <RouterLink class="me-2" to="/about">About</RouterLink>
+          <RouterLink class="me-2" to="/calculator">Calculator</RouterLink>
+          <RouterLink class="me-2" to="/login">Login</RouterLink>
         </b-navbar-nav>
       </b-navbar>
     </div>
@@ -20,7 +21,10 @@ export default {
 
 <style scoped>
 a{
-  color: gray;
+  color: white;
   text-decoration: none;
+}
+a:hover{
+  color: gray;
 }
 </style>
