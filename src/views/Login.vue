@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      component: Login,
+      component: Register,
     };
   },
   methods: {
