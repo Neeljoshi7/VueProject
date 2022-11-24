@@ -8,6 +8,7 @@ import './assets/main.css'
 
 const app = createApp(App)
 
+
 app.use(router)
 app.use(BootstrapVue3)
 app.mount('#app')

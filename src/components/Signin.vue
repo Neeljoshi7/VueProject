@@ -3,10 +3,10 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <div class="card shadow-sm">
+          <div class="card shadow-lg custom-card">
             <div class="card-body">
-              <h1 class="main-heading">Login</h1>
-              <form method="POST" action="submit.php">
+              <h1 class="main-heading text-center">Login</h1>
+              <form class="mt-5" @submit.prevent="whileLogin">
                 <div class="row mb-3">
                   <label for="email" class="col-md-4 col-form-label text-md-end"
                     >Username</label
@@ -17,7 +17,7 @@
                       type="name"
                       class="form-control"
                       name="name"
-                      value=""
+                      v-model="newLogin.userName"
                       required
                       autocomplete="name"
                       autofocus
@@ -36,6 +36,7 @@
                       id="password"
                       type="password"
                       class="form-control"
+                      v-model="newLogin.password"
                       name="password"
                       required
                       autocomplete="current-password"
@@ -65,9 +66,7 @@
                       Login
                     </button>
 
-                     <a class="text-decoration-none ps-4">
-                      Register
-                    </a> 
+                    <a class="text-decoration-none ps-4"> Register </a>
                   </div>
                 </div>
               </form>
@@ -80,8 +79,35 @@
 </template>
 
 <script>
-export default {};
+var authers;
+export default {
+  data() {
+    return {
+      newLogin: {
+        userName: "",
+        password: "",
+      },
+    };
+  },
+
+  mounted() {
+    authers = JSON.parse(localStorage.getItem("authers"));
+    console.log("users", authers);
+  },
+  methods: {
+    whileLogin() {
+      authers.forEach((user) => {
+        if (this.newLogin.userName == user.userName) {
+          alert("Thank You");
+        }
+      });
+    },
+  },
+};
 </script>
 
-<style>
+<style scoped>
+.custom-card {
+  height: 390px;
+}
 </style>

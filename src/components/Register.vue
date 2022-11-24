@@ -31,6 +31,7 @@
                   <div class="col-md-6">
                     <input
                       id="email"
+                      v-validate="'required|email'"
                       v-model="newUsers.email"
                       type="email"
                       class="form-control"
@@ -71,7 +72,7 @@
                     <input
                       id="confirm_password"
                       type="password"
-                      v-model="confirmPassword"
+                      v-model="newUsers.confirmPassword"
                       class="form-control"
                       name="confirm_password"
                       required
@@ -99,7 +100,6 @@
                 <div class="row mb-0 mt-4">
                   <div class="col-md-8 offset-md-3">
                     <button
-                      @click="whileRegister"
                       type="submit"
                       class="btn btn-primary py-1 px-4"
                     >
@@ -132,24 +132,17 @@ export default {
         Password: "",
         confirmPassword: ""
       },
-      auther: [
-        {
-          userName: "",
-          email: "",
-          Password: "",
-          confirmPassword: ""
-        },
-      ],
+      auther: [],
     };
   },
   methods: {
-    whileRegister() {
-      if(this.newUsers.Password === this.newUsers.confirmPassword){
-        this.$router.push('/')
-      }else{
-        alert("Password dose't match")
-      }
-    },
+    // whileRegister() {
+    //   if(this.newUsers.Password === this.newUsers.confirmPassword){
+    //     this.$router.push('/')
+    //   }else{
+    //     alert("Password dose't match")
+    //   }
+    // },
     onSubmit() {
       this.auther.push({
         userName: this.newUsers.userName,
@@ -161,9 +154,9 @@ export default {
         userName: "",
         email: "",
         Password: "",
-        confirmPassword: ""
+        confirmPassword: "",
       };
-      console.log("this.auther", this.auther)
+       localStorage.setItem("authers", JSON.stringify(this.auther));
     },
   },
 };
