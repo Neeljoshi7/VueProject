@@ -92,13 +92,18 @@ export default {
 
   mounted() {
     authers = JSON.parse(localStorage.getItem("authers"));
-    console.log("users", authers);
   },
   methods: {
     whileLogin() {
       authers.forEach((user) => {
         if (this.newLogin.userName == user.userName) {
-          alert("Thank You");
+          if (this.newLogin.password == user.confirmPassword) {
+            alert("🟢 You Are Logged In");
+          } else {
+            alert("🔴 Password Incorrect");
+          }
+        } else {
+          alert("🔴 Incorrect Username");
         }
       });
     },

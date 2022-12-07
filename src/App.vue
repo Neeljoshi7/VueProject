@@ -16,7 +16,7 @@ import CustomNavbar from './components/CustomNavbar.vue'
 export default{
   components:{
     CustomNavbar
-  }
+  },
 }
 
 </script>

@@ -5,6 +5,7 @@
         <b-navbar-nav>
           <RouterLink class="me-2" to="/">PunchBag</RouterLink>
           <RouterLink class="me-2" to="/calculator">Calculator</RouterLink>
+          <RouterLink class="me-2" to="/register">Rough</RouterLink>
           <RouterLink class="me-2" to="/login">Login</RouterLink>
         </b-navbar-nav>
       </b-navbar>

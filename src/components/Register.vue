@@ -22,6 +22,7 @@
                       autocomplete="name"
                       autofocus
                     />
+                    <!-- <input v-validate="'email'" data-vv-as="email" name="email_field" type="text" autocomplete="name"  v-model="newUsers.userName"> -->
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -136,18 +137,11 @@ export default {
     };
   },
   methods: {
-    // whileRegister() {
-    //   if(this.newUsers.Password === this.newUsers.confirmPassword){
-    //     this.$router.push('/')
-    //   }else{
-    //     alert("Password dose't match")
-    //   }
-    // },
     onSubmit() {
       this.auther.push({
         userName: this.newUsers.userName,
         email: this.newUsers.email,
-        password: this.newUsers.Password,
+        pass : this.newUsers.Password,
         confirmPassword: this.newUsers.confirmPassword
       });
       this.newUsers = {
